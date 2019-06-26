@@ -16,5 +16,8 @@
     "version": "1.0.0",
     "main": "index.js",
     "repository": "https://github.com/zakali23/NootNootFood.git",
-    "author": "Zakali23 <zakaria.zekraoui@gmail.com>"
+    "author": "Zakali23 <zakaria.zekraoui@gmail.com>",
+    "dependencies": {
+        "mdbootstrap": "^4.8.3"
+    }
 }
