@@ -71,4 +71,5 @@ Encore
     //.addEntry('admin', './assets/js/admin.js')
 ;
 
+Encore.enableSassLoader();
 module.exports = Encore.getWebpackConfig();
