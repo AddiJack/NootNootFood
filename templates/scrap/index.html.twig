@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+ {{dump(client)}}
+
+{% for clients in client %}
+    {{client}} 
+{% endfor %}
+{% endblock %}
