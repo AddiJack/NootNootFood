@@ -7,6 +7,9 @@ body {
 header{
     background-image: url("/image/trianglify.png");
     background-size: 100%;
+    -webkit-clip-path: polygon(100% 75%, 25% 100%, 0% 80%, 0% 0%, 100% 0%);
+    clip-path: polygon(100% 75%, 25% 100%, 0% 80%, 0% 0%, 100% 0%);
+    height: 23em;
 }
 
 .background-orange{
