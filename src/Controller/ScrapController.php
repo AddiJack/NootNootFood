@@ -18,24 +18,46 @@ class ScrapController extends AbstractController
     public function index()
     {
         $client = new Client();
-        
-        // $crawler = $client->request('GET', 'https://deliveroo.fr/fr/menu/paris/9eme-opera/okinawa?day=today&time=ASAP');
-        // $crawler->filter('h1')->each(function ($node) {
-        //     echo $node->text() . '<br>';
-        // });
+        $crawler = $client->request('GET', 'https://www.just-eat.fr/restaurant-livraison-a-domicile/restaurant/oky-sushi-75020');
+       
 
-        // $crawler = $client->request('GET', 'https://deliveroo.fr/fr/menu/paris/9eme-opera/okinawa?day=today&time=ASAP');
-        // $crawler->filter('div')->filter('h1')->each(function ($node) {
-        //     echo $node->text() . '<br>';
-        // });
-        $crawler = $client->request('GET', 'https://www.php.net/download-logos.php');
-        $crawler->filter('nav')->each(function ($node) {
-           $node->text() . '<br>';
+        $images = $crawler->filter('img')->each(function ($node) {
+            echo '<img src="' . $node->attr('src') . '" alt="' . $node->attr('itemprop') . '">';
         });
+        // image
 
+        $plat = $crawler->filter('h4')->filter('.name')->each(function ($node){
+            return $posts[] = $node->text();
+        }); 
+
+        // plat
+
+        $description = $crawler->filter('div')->filter('.description')->each(function ($node){
+            return $posts[] = $node->text();
+        }); 
+
+        // description
+
+         $prix = $crawler->filter('div')->filter('.price')->each(function ($node){
+            return $posts[] = $node->text();
+        }); 
+
+         // prix
+        
+         $tag = $crawler->filter('div')->filter('.cuisines')->filter('a')->each(function ($node){
+            return $posts[] = $node->text();
+        }); 
+
+         // tag
+       
+
+        
         return $this->render('scrap/index.html.twig', [
             'controller_name' => 'ScrapController',
             'client' => $client,
+            'clienti' => $images,
         ]);
     }
+
+   
 }
