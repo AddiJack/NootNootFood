@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Noot Noot Food !{% endblock %}
+{% block stylesheets %}
+    {{ encore_entry_link_tags('Accueil') }}
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+    <div class="row">
+        <div class="col-md-3 menu">
+            SELECTION
+        </div>
+        <div class="col-md-9 choix">
+            <div class="container">
+                <div class="row">
+                    {% for menu in menus %}
+                        <div class="col-md-4 mt-5">
+                            <!-- Card -->
+                            <div class="card">
+                                <!-- Card image -->
+                                <div class="view overlay">
+                                    <img class="card-img-top"
+                                         src="{{ menu.image }}"
+                                         alt="image">
+                                    <div class="mask rgba-white-slight"></div>
+                                    </a>
+                                </div>
+                                <!-- Card content -->
+                                <div class="card-body">
+                                    <!-- Title -->
+                                    <h4 class="card-title">{{ menu.title }}</h4>
+                                    <!-- Text -->
+                                    <p class="card-text">{{ menu.description }}</p>
+                                    <!-- Button -->
+                                    <a href="#" class="btn btn-primary">Button</a>
+                                </div>
+                            </div>
+                            <!-- Card -->
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
