@@ -7,8 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Goutte\Client;
 use Symfony\Component\BrowserKit\AbstractBrowser;
 use Symfony\Component\DomCrawler\Crawler;
-
-
+use App\Entity\Plats;
 
 class ScrapController extends AbstractController
 {
@@ -32,14 +31,22 @@ class ScrapController extends AbstractController
              {
                 $menu['price'] = trim($node->filter('div')->filter('.price')->text());
              }
-            //  if(!empty($node->filter('div')->filter('.cuisines')))
-            //  {
-            //     $menu['cuisines'] = $node->filter('div')->filter('.cuisines')->filter('a')->text();
-            //  }
-            dump($menu);
+            
+            // dump($menu);
+           
+            // $plats->setNom();
+            // $plats->setDescription();
+            // $plats->setImage();
+            
             $menus[] = $menu;
+
+            $plats = new Plats();
+
+            foreach ($menus as $menuu) {
+                dump($menuu);
+            }
         }); 
-        dump($menus);
+        // dump($menus);
 
         
         
@@ -48,6 +55,11 @@ class ScrapController extends AbstractController
         }); 
 
         // tag
+
+        //  if(!empty($node->filter('div')->filter('.cuisines')))
+            //  {
+            //     $menu['cuisines'] = $node->filter('div')->filter('.cuisines')->filter('a')->text();
+            //  }
 
         // $images = $crawler->filter('img')->each(function ($node) {
         //     echo '<img src="' . $node->attr('src') . '" alt="' . $node->attr('itemprop') . '">';
