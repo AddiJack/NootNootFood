@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{tag}}{% endblock %}
+
+{% block body %}
+    {% for plats in allTags %}
+        <ul>
+            <li>{{plats.nom}}</li>
+            <li>{{plats.description}}</li>
+            <li>{{plats.image}}</li>
+        </ul>
+    {% endfor %}
+{% endblock %}

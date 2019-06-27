@@ -1,0 +1,40 @@
+@import "vars";
+
+body {
+    background-color: $white;
+}
+
+header{
+    background-image: url("/image/trianglify.png");
+    background-size: 100%;
+    -webkit-clip-path: polygon(100% 75%, 25% 100%, 0% 80%, 0% 0%, 100% 0%);
+    clip-path: polygon(100% 75%, 25% 100%, 0% 80%, 0% 0%, 100% 0%);
+    height: 23em;
+}
+
+footer{
+        background-image: url("/image/trianglify.png");
+        background-size: 100%;
+        -webkit-clip-path: polygon(25% 0, 100% 25%, 100% 100%, 0 100%, 0% 25%);
+        clip-path: polygon(25% 0, 100% 25%, 100% 100%, 0 100%, 0% 25%);
+        height: 15em;
+    }
+
+.background-orange{
+    border-right: 5px dashed $orange;
+}
+
+.btn {
+   background-color: $orange !important;
+   color: $white !important;
+}
+
+p {
+  font-family: calibri, sans-serif !important;
+  font-weight: normal !important;
+}
+
+h4 {
+  font-family: calibri, sans-serif !important;
+  font-weight: normal !important;
+}

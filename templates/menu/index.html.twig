@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Hello MenuController!{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+    <div class="row">
+        <div class="col-md-3 menu background-orange">
+            {% if errors %}
+                {{ errors }}
+            {% endif %}
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn">{{ button_label|default('MANGER') }}</button>
+            {{ form_end(form) }}
+        </div>
+        <div class="col-md-9 menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 pt-5 d-flex justify-content-center">
+                        <h2>Titre Plat</h2>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-md-6 p-5 d-flex justify-content-center">
+                        <p>Description</p>
+                    </div>
+                    <div class="col-md-6 p-5 d-flex justify-content-end">
+                        <img src="https://via.placeholder.com/150" alt="placeholder">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 pr-5 d-flex justify-content-center">
+                        <p>Prix</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
