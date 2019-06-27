@@ -10,8 +10,21 @@ header {
   height: 23em;
 }
 
+footer {
+  background-image: url("/image/trianglify.png");
+  background-size: 100%;
+  -webkit-clip-path: polygon(25% 0, 100% 25%, 100% 100%, 0 100%, 0% 25%);
+  clip-path: polygon(25% 0, 100% 25%, 100% 100%, 0 100%, 0% 25%);
+  height: 15em;
+}
+
 .background-orange {
   border-right: 5px dashed #fc965a;
+}
+
+.btn {
+  background-color: #fc965a !important;
+  color: #fff8f0 !important;
 }
 
 /*# sourceMappingURL=app.css.map */

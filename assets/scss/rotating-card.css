@@ -127,7 +127,7 @@ body {
 }
 
 .card .content .main {
-  min-height: 160px;
+  min-height: 90px;
 }
 
 .card .back .content .main {
@@ -352,6 +352,9 @@ pre.prettyprint {
     z-index: 5;
     visibility: visible;
   }
+}
+.menuDescription {
+  max-height: 120px;
 }
 
 /*# sourceMappingURL=rotating-card.css.map */

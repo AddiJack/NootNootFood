@@ -36,9 +36,23 @@
         </div>
     </div>
 </header>
+
 <body>
 
 {% block body %}{% endblock %}
+
+
+</body>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center pt-5">
+                <img class="pt-5 w-25" src="{{ asset('image/nootnootteam.png') }}" alt="team">
+            </div>
+        </div>
+    </div>
+</footer>
 
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
@@ -53,5 +67,4 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/js/mdb.min.js"></script>
 
-</body>
 </html>
