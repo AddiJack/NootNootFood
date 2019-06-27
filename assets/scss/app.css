@@ -37,4 +37,15 @@ h4 {
   font-weight: normal !important;
 }
 
+.btn-select {
+  color: #fff8f0;
+}
+.btn-select a:link {
+  text-decoration: none;
+  color: #fff8f0;
+}
+.btn-select a:visited {
+  color: #fff8f0;
+}
+
 /*# sourceMappingURL=app.css.map */
