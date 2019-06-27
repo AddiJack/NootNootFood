@@ -7,8 +7,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Goutte\Client;
 use Symfony\Component\BrowserKit\AbstractBrowser;
 use Symfony\Component\DomCrawler\Crawler;
-
-
+use Doctrine\Common\Persistence\ObjectManager;
+use App\Entity\Plats;
 
 class ScrapController extends AbstractController
 {
@@ -32,14 +32,32 @@ class ScrapController extends AbstractController
              {
                 $menu['price'] = trim($node->filter('div')->filter('.price')->text());
              }
+            
             //  if(!empty($node->filter('div')->filter('.cuisines')))
             //  {
             //     $menu['cuisines'] = $node->filter('div')->filter('.cuisines')->filter('a')->text();
             //  }
-            dump($menu);
+            // dump($menu);
             $menus[] = $menu;
-        }); 
-        dump($menus);
+        });
+
+        $plats = new Plats();
+
+        foreach ($menus as $menu){
+            $plats->setNom($menu['name']);
+            $plats->setDescription($menu['description']);
+            $plats->setPrix($menu['price']);
+            $plats->setImage('img');
+            $plats->setTag('sushi');
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($plats);
+            $entityManager->flush();
+            //dump($menu['price']);
+        }
+
+
+
+        //dump($menus);
 
         
         
