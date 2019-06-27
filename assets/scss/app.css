@@ -27,4 +27,14 @@ footer {
   color: #fff8f0 !important;
 }
 
+p {
+  font-family: calibri, sans-serif !important;
+  font-weight: normal !important;
+}
+
+h4 {
+  font-family: calibri, sans-serif !important;
+  font-weight: normal !important;
+}
+
 /*# sourceMappingURL=app.css.map */
