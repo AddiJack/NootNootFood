@@ -69,6 +69,11 @@ Encore
     // uncomment if you use API Platform Admin (composer req api-admin)
     //.enableReactPreset()
 .addEntry('Accueil', './assets/css/Accueil.css');
+    //.addEntry('admin', './assets/js/admin.js')
 
+    .configureFilenames({
+        image: '[path][name].[ext]',
+    })
+;
 Encore.enableSassLoader();
 module.exports = Encore.getWebpackConfig();
