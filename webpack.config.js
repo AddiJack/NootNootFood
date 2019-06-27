@@ -70,4 +70,5 @@ Encore
     //.enableReactPreset()
 .addEntry('Accueil', './assets/css/Accueil.css');
 
+Encore.enableSassLoader();
 module.exports = Encore.getWebpackConfig();
