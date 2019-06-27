@@ -19,45 +19,62 @@ class ScrapController extends AbstractController
     {
         $client = new Client();
         $crawler = $client->request('GET', 'https://www.just-eat.fr/restaurant-livraison-a-domicile/restaurant/oky-sushi-75020');
-       
 
-        $images = $crawler->filter('img')->each(function ($node) {
-            echo '<img src="' . $node->attr('src') . '" alt="' . $node->attr('itemprop') . '">';
-        });
-        // image
-
-        $plat = $crawler->filter('h4')->filter('.name')->each(function ($node){
-            return $posts[] = $node->text();
+        $menus = [];
+        $crawler->filter('li')->filter('.product')->each(function ($node){
+            
+             $menu['name'] = trim($node->filter('h4')->filter('.name')->text());
+             if(!empty($node->filter('div')->filter('.description')))
+             {
+                $menu['description'] = trim($node->filter('div')->filter('.description')->text());
+             }
+             if(!empty($node->filter('div')->filter('.price')))
+             {
+                $menu['price'] = trim($node->filter('div')->filter('.price')->text());
+             }
+            //  if(!empty($node->filter('div')->filter('.cuisines')))
+            //  {
+            //     $menu['cuisines'] = $node->filter('div')->filter('.cuisines')->filter('a')->text();
+            //  }
+            dump($menu);
+            $menus[] = $menu;
         }); 
+        dump($menus);
 
-        // plat
+        // $images = $crawler->filter('img')->each(function ($node) {
+        //     echo '<img src="' . $node->attr('src') . '" alt="' . $node->attr('itemprop') . '">';
+        // });
+        // // image
 
-        $description = $crawler->filter('div')->filter('.description')->each(function ($node){
-            return $posts[] = $node->text();
-        }); 
+        // $plat = $crawler->filter('h4')->filter('.name')->each(function ($node){
+        //     return $posts[] = $node->text();
+        // }); 
 
-        // description
+        // // plat
 
-         $prix = $crawler->filter('div')->filter('.price')->each(function ($node){
-            return $posts[] = $node->text();
-        }); 
+        // $description = $crawler->filter('div')->filter('.description')->each(function ($node){
+        //     return $posts[] = $node->text();
+        // }); 
 
-         // prix
+        // // description
+
+        // $prix = $crawler->filter('div')->filter('.price')->each(function ($node){
+        //     return $posts[] = $node->text();
+        // }); 
+
+        //  // prix
         
-         $tag = $crawler->filter('div')->filter('.cuisines')->filter('a')->each(function ($node){
+        $tag = $crawler->filter('div')->filter('.cuisines')->filter('a')->each(function ($node){
             return $posts[] = $node->text();
         }); 
 
-         // tag
+        // // tag
        
-
-        
         return $this->render('scrap/index.html.twig', [
             'controller_name' => 'ScrapController',
             'client' => $client,
-            'clienti' => $images,
+            'clienti' => $tag,
         ]);
     }
-
    
 }
