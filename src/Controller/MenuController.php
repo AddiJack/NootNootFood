@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Commande;
+use App\Entity\Menu;
 use App\Form\CommandeType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,9 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class MenuController extends AbstractController
 {
     /**
-     * @Route("/menu", name="menu", methods={"GET","POST"})
+     * @Route("/menu/{id}", name="menu", methods={"GET","POST"})
      */
-    public function index(Request $request)
+    public function index(Request $request, Menu $menu)
     {
         $commande = new Commande();
         $form = $this->createForm(CommandeType::class, $commande);
