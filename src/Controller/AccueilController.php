@@ -4,16 +4,17 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\MenuRepository;
 
 class AccueilController extends AbstractController
 {
     /**
      * @Route("/accueil", name="accueil")
      */
-    public function index()
+    public function index(MenuRepository $menuRepository)
     {
         return $this->render('accueil/index.html.twig', [
-            'controller_name' => 'AccueilController',
+            'menus' => $menuRepository->findAll()
         ]);
     }
 }
