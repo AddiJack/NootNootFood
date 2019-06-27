@@ -19,16 +19,19 @@ class ScrapController extends AbstractController
     {
         $client = new Client();
         
-        $crawler = $client->request('GET', 'https://deliveroo.fr/fr/menu/paris/9eme-opera/okinawa?day=today&time=ASAP');
-        $crawler->filter('h1')->each(function ($node) {
-            echo $node->text() . '<br>';
-        });
+        // $crawler = $client->request('GET', 'https://deliveroo.fr/fr/menu/paris/9eme-opera/okinawa?day=today&time=ASAP');
+        // $crawler->filter('h1')->each(function ($node) {
+        //     echo $node->text() . '<br>';
+        // });
 
         // $crawler = $client->request('GET', 'https://deliveroo.fr/fr/menu/paris/9eme-opera/okinawa?day=today&time=ASAP');
         // $crawler->filter('div')->filter('h1')->each(function ($node) {
         //     echo $node->text() . '<br>';
         // });
-
+        $crawler = $client->request('GET', 'https://www.php.net/download-logos.php');
+        $crawler->filter('nav')->each(function ($node) {
+           $node->text() . '<br>';
+        });
 
         return $this->render('scrap/index.html.twig', [
             'controller_name' => 'ScrapController',
