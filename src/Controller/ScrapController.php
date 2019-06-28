@@ -41,23 +41,26 @@ class ScrapController extends AbstractController
             $menus[] = $menu;
         });
 
-        $plats = new Plats();
+        
 
         foreach ($menus as $menu){
+            $plats = new Plats();
             $plats->setNom($menu['name']);
+            //echo $plats->getNom().'<br/>';
             $plats->setDescription($menu['description']);
             $plats->setPrix($menu['price']);
-            $plats->setImage('img');
-            $plats->setTag('sushi');
+            //$plats->setImage('img');
+            //$plats->setTag('sushi');
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($plats);
-            $entityManager->flush();
-            //dump($menu['price']);
+           // dump($menu);
         }
 
+        $entityManager->flush();
 
 
-        //dump($menus);
+
+        // dump($menus);
 
         
         
