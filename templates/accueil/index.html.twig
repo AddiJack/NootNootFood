@@ -7,39 +7,50 @@
         <!-- Stack the columns on mobile by making one full-width and the other half-width -->
         <div class="row">
             <div class="col-md-3 menu background-orange">
-                <!-- Material unchecked -->
-                {% for menu in menus %}
-                    <div class="form-check text-center pt-3">
-                        <input type="checkbox" class="form-check-input" id="materialUnchecked">
-                        <label class="form-check-label" for="materialUnchecked">Material unchecked</label>
-                    </div>
-                {% endfor %}
+                <button class="mt-3 btn peach-gradient btn-select">
+                    <a href="{{ path('tag_plat', {tag:'pizza'}) }}">
+                        <i class="fas fa-pizza-slice"></i>
+                        &nbsp;&nbsp;Toutes les pizzas
+                    </a>
+                </button>
+                <button class="mt-3 btn peach-gradient btn-select">
+                    <a href="{{ path('tag_plat', {tag:'sushi'}) }}">
+                        <i class="fas fa-fish"></i>
+                        &nbsp;&nbsp;Tous les sushis
+                    </a>
+                </button>
+                <button class="mt-3 btn peach-gradient btn-select">
+                    <a href="{{ path('tag_plat', {tag:'burger'}) }}">
+                        <i class="fas fa-hamburger"></i>
+                        &nbsp;&nbsp;Tous les burgers
+                    </a>
+                </button>
             </div>
             <div class="col-md-9 choix">
                 <div class="container">
                     <div class="row">
-                        {% for menu in menus %}
+                        {% for plat in plats %}
                             <div class="col-md-4 mt-5">
                                 <div class="card-container">
                                     <div class="card">
                                         <div class="front">
                                             <div class="cover">
-                                                <img src="{{ menu.image }}"/>
+                                                <img src="{{ plat.image }}"/>
                                             </div>
                                             <div class="content">
                                                 <div class="main">
-                                                    <h3 class="name">{{ menu.title }}</h3>
+                                                    <h3 class="name">{{ plat.nom }}</h3>
                                                 </div>
                                             </div>
                                         </div> <!-- end front panel -->
                                         <div class="back">
                                             <div class="content">
                                                 <div class="main">
-                                                    <h4 class="text-center mt-3 menuDescription">{{ menu.description }}
+                                                    <h4 class="text-center mt-3 menuDescription">{{ plat.description }}
                                                         <br><br>
                                                         <hr>
                                                         <!-- Button -->
-                                                        <a class="btn btn-orange">
+                                                        <a href="{{ path('plat', {'id':plat.id}) }}" class="btn btn-orange">
                                                             J'ai les crocs,<br>je commande ça !
                                                         </a>
                                                     </h4>

@@ -32,6 +32,7 @@ class ScrapController extends AbstractController
              {
                 $menu['price'] = trim($node->filter('div')->filter('.price')->text());
              }
+
             // dump($menu);
             $menus[] = $menu;
         });
@@ -91,6 +92,7 @@ class ScrapController extends AbstractController
         $entityManager->flush();
 
 
+
         $client = new Client();
         $crawler = $client->request('GET', 'https://www.just-eat.fr/restaurant-livraison-a-domicile/restaurant/les-burgers-de-papa-strasbourg');
 
@@ -128,6 +130,11 @@ class ScrapController extends AbstractController
         $entityManager->flush();
         
        
+
+        //  if(!empty($node->filter('div')->filter('.cuisines')))
+            //  {
+            //     $menu['cuisines'] = $node->filter('div')->filter('.cuisines')->filter('a')->text();
+            //  }
 
         // $images = $crawler->filter('img')->each(function ($node) {
         //     echo '<img src="' . $node->attr('src') . '" alt="' . $node->attr('itemprop') . '">';
