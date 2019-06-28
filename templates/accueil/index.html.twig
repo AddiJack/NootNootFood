@@ -7,36 +7,7 @@
         <!-- Stack the columns on mobile by making one full-width and the other half-width -->
         <div class="row">
             <div class="col-md-3 menu background-orange">
-                <button class="mt-3 btn peach-gradient btn-select">
-                    <a href="{{ path('tag_plat', {tag:'pizza'}) }}">
-                        <i class="fas fa-pizza-slice"></i>
-                        &nbsp;&nbsp;Toutes les pizzas
-                    </a>
-                </button>
-                <button class="mt-3 btn peach-gradient btn-select">
-                    <a href="{{ path('tag_plat', {tag:'sushi'}) }}">
-                        <i class="fas fa-fish"></i>
-                        &nbsp;&nbsp;Tous les sushis
-                    </a>
-                </button>
-                <button class="mt-3 btn peach-gradient btn-select">
-                    <a href="{{ path('tag_plat', {tag:'burger'}) }}">
-                        <i class="fas fa-hamburger"></i>
-                        &nbsp;&nbsp;Tous les burgers
-                    </a>
-                </button>
-                <button class="mt-3 btn tempting-azure-gradient btn-select">
-                    <a href="{{ path('plats_index', {searchBy:'asc'}) }}">
-                        <i class="fas fa-angle-up"></i>
-                        &nbsp;&nbsp;Tri prix ascendant
-                    </a>
-                </button>
-                <button class="mt-3 btn tempting-azure-gradient btn-select">
-                    <a href="{{ path('plats_index', {searchBy:'desc'}) }}">
-                        <i class="fas fa-angle-down"></i>
-                        &nbsp;&nbsp;Tri prix descendant
-                    </a>
-                </button>
+                {% include 'menu.html.twig' %}
             </div>
             <div class="col-md-9 choix">
                 <div class="container">
@@ -77,6 +48,5 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 {% endblock %}
