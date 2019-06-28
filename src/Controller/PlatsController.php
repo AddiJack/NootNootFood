@@ -21,7 +21,7 @@ class PlatsController extends AbstractController
     /**
      * @Route("/{searchBy}", name="plats_index", methods={"GET", "POST"})
      */
-    public function index(PlatsRepository $platsRepository, ?string $searchBy = null) : Response
+    public function index(PlatsRepository $platsRepository, Plats $plats, ?string $searchBy = null) : Response
     {
         if (is_null($searchBy)){
             $plats = $platsRepository->findAll();
