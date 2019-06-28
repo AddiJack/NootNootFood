@@ -174,7 +174,7 @@ class ScrapController extends AbstractController
 
         //  $tag = $crawler->filter('div')->filter('.cuisines')->filter('a')->each(function ($node){
         //     return $posts[] = $node->text();
-        // }); */
+        // });*/
 
        
         return $this->render('scrap/index.html.twig', [

@@ -73,8 +73,8 @@ button {
 /* ANIMATED POP-UP Style */
 #pop-up {
   transform-origin: 10px 10px;
-  top: -415px;
-  right: 145px;
+  top: -470px;
+  right: -90px;
   animation: drop 2s linear forwards, swing 4s 5s ease forwards;
 }
 
@@ -106,7 +106,7 @@ button {
 }
 /* ANIMATED POP-UP Style */
 .submit-wrapper {
-  margin-top: -165px;
+  margin-top: 80px;
   justify-items: center;
 }
 
@@ -206,6 +206,60 @@ button {
 }
 
 .submit-wrapper2 a:hover {
+  text-decoration: none;
+  background: #9dd9d2;
+  transition: all 0.6s;
+  color: #fc965a;
+  font-weight: bold;
+}
+
+.submit-wrapper3 {
+  margin-top: -150px;
+  justify-items: center;
+}
+
+.submit-wrapper3 a {
+  box-shadow: 10px 5px 5px #868686;
+  border: 2px solid #9dd9d2;
+  color: #000;
+  padding: 20px 25px;
+  text-decoration: none;
+  position: relative;
+  letter-spacing: 8px;
+  transition: all 0.6s;
+  z-index: 1;
+}
+
+.submit-wrapper3 a:before,
+.submit-wrapper3 a:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 24px;
+  height: 4px;
+  background: #9dd9d2;
+  margin-left: -12px;
+  margin-top: -2px;
+  transition: all 0.6s;
+}
+
+.submit-wrapper3 a:after {
+  left: auto;
+  right: 0;
+  margin-right: -12px;
+}
+
+.submit-wrapper3 a:hover:before,
+.submit-wrapper3 a:hover:after {
+  width: 100%;
+  transition: all 0.6s;
+  background: #fff;
+  transform: scaleY(5);
+  z-index: -1;
+}
+
+.submit-wrapper3 a:hover {
   text-decoration: none;
   background: #9dd9d2;
   transition: all 0.6s;
