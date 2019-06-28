@@ -1,13 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{tag}}{% endblock %}
+{% block title %}{{ tag }} Noot Noot Food{% endblock %}
 
 {% block body %}
-    {% for plats in allTags %}
-        <ul>
-            <li>{{plats.nom}}</li>
-            <li>{{plats.description}}</li>
-            <li>{{plats.image}}</li>
-        </ul>
-    {% endfor %}
+    <div class="container-fluid">
+        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <div class="row">
+            <div class="col-md-3 menu background-orange">
+                {% include 'menu.html.twig' %}
+            </div>
+            <div class="col-md-9 choix">
+                <div class="container">
+                    <div class="row">
+                        {% for plats in allTags %}
+                            <div class="col-md-4 mt-5">
+                                <div class="card-container">
+                                    <div class="card">
+                                        <div class="front">
+                                            <div class="cover">
+                                                <img src="{{ plat.image }}"/>
+                                            </div>
+                                            <div class="content">
+                                                <div class="main">
+                                                    <h3 class="name">{{ plat.nom }}</h3>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end front panel -->
+                                        <div class="back">
+                                            <div class="content">
+                                                <div class="main">
+                                                    <h4 class="text-center mt-3 menuDescription">{{ plat.description }}
+                                                        <br><br>
+                                                        <hr>
+                                                        <!-- Button -->
+                                                        <a href="{{ path('plat', {'id':plat.id}) }}"
+                                                           class="btn btn-orange">
+                                                            J'ai les crocs,<br>je commande ça !
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end back panel -->
+                                    </div> <!-- end card -->
+                                </div> <!-- end card-container -->
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
