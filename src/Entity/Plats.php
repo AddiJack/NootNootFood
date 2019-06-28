@@ -27,17 +27,17 @@ class Plats
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     private $tag;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string")
      */
     private $prix;
 
@@ -94,12 +94,12 @@ class Plats
         return $this;
     }
 
-    public function getPrix(): ?float
+    public function getPrix(): ?string
     {
         return $this->prix;
     }
 
-    public function setPrix(float $prix): self
+    public function setPrix(string $prix): self
     {
         $this->prix = $prix;
 
