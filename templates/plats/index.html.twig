@@ -12,31 +12,31 @@
             <div class="col-md-9 choix">
                 <div class="container">
                     <div class="row">
-                        {% for plat in plats %}
+                        {% for plats in plat %}
                             <div class="col-md-4 mt-5">
                                 <div class="card-container">
                                     <div class="card">
                                         <div class="front">
                                             <div class="cover">
-                                                <img src="{{ plat.image }}"/>
+                                                <img src="{{ plats.image }}"/>
                                             </div>
                                             <div class="content">
                                                 <div class="main">
-                                                    <h3 class="name">{{ plat.nom }}</h3>
+                                                    <h3 class="name">{{ plats.nom }}</h3>
                                                     <br>
-                                                    {{ plat.prix }}
+                                                    {{ plats.prix }}
                                                 </div>
                                             </div>
                                         </div> <!-- end front panel -->
                                         <div class="back">
                                             <div class="content">
                                                 <div class="main">
-                                                    <h4 class="text-center mt-3 menuDescription">{{ plat.description }}
+                                                    <h4 class="text-center mt-3 menuDescription">{{ plats.description }}
                                                         <br>
                                                         <br>
                                                         <hr>
                                                         <!-- Button -->
-                                                        <a href="{{ path('plat', {'id':plat.id}) }}"
+                                                        <a href="{{ path('menu', {'id':plat.id}) }}"
                                                            class="btn btn-orange">
                                                             J'ai les crocs,<br>je commande ça !
                                                         </a>
