@@ -17,56 +17,117 @@ class ScrapController extends AbstractController
      */
     public function index()
     {
-        // $client = new Client();
-        // $crawler = $client->request('GET', 'https://www.just-eat.fr/restaurant-livraison-a-domicile/restaurant/oky-sushi-75020');
+        $client = new Client();
+        $crawler = $client->request('GET', 'https://www.just-eat.fr/restaurant-livraison-a-domicile/restaurant/oky-sushi-75020');
 
-        // $menus = [];
-        // $crawler->filter('li')->filter('.product')->each(function ($node) use (&$menus){
+        $menus = [];
+        $crawler->filter('li')->filter('.product')->each(function ($node) use (&$menus){
             
-        //      $menu['name'] = trim($node->filter('h4')->filter('.name')->text());
-        //      if(!empty($node->filter('div')->filter('.description')))
-        //      {
-        //         $menu['description'] = trim($node->filter('div')->filter('.description')->text());
-        //      }
-        //      if(!empty($node->filter('div')->filter('.price')))
-        //      {
-        //         $menu['price'] = trim($node->filter('div')->filter('.price')->text());
-        //      }
-        //     // dump($menu);
-        //     $menus[] = $menu;
-        // });
+             $menu['name'] = trim($node->filter('h4')->filter('.name')->text());
+             if(!empty($node->filter('div')->filter('.description')))
+             {
+                $menu['description'] = trim($node->filter('div')->filter('.description')->text());
+             }
+             if(!empty($node->filter('div')->filter('.price')))
+             {
+                $menu['price'] = trim($node->filter('div')->filter('.price')->text());
+             }
+            // dump($menu);
+            $menus[] = $menu;
+        });
 
-        
-
-
-        //     $i=0;
-        //     foreach ($menus as $menu){
-        //         $plats = new Plats();
-        //         $plats->setNom($menu['name']);
-        //         $plats->setDescription($menu['description']);
-        //         $plats->setPrix($menu['price']);
-        //         // $plats->setImage($menus['img']);
-        //         $plats->setTag('sushi');
-        //         $entityManager = $this->getDoctrine()->getManager();
-        //         $entityManager->persist($plats);
+            $i=0;
+            foreach ($menus as $menu){
+                $plats = new Plats();
+                $plats->setNom($menu['name']);
+                $plats->setDescription($menu['description']);
+                $plats->setPrix($menu['price']);
+                // $plats->setImage($menus['img']);
+                $plats->setTag('sushi');
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($plats);
                
-        //        if($i==10) break;
-        //        $i++;
-        //     }
-           
+               if($i==10) break;
+               $i++;
+            }
 
         // $entityManager->flush();
         // dump($menus);
 
+        $client = new Client();
+        $crawler = $client->request('GET', 'https://www.just-eat.fr/restaurant-livraison-a-domicile/restaurant/pizza-presto-75004');
+
+        $menus = [];
+        $crawler->filter('li')->filter('.product')->each(function ($node) use (&$menus){
+            
+             $menu['name'] = trim($node->filter('h4')->filter('.name')->text());
+             if(!empty($node->filter('div')->filter('.description')))
+             {
+                $menu['description'] = trim($node->filter('div')->filter('.description')->text());
+             }
+             if(!empty($node->filter('div')->filter('.price')))
+             {
+                $menu['price'] = trim($node->filter('div')->filter('.price')->text());
+             }
+            // dump($menu);
+            $menus[] = $menu;
+        });
+
+            $i=0;
+            foreach ($menus as $menu){
+                $plats = new Plats();
+                $plats->setNom($menu['name']);
+                $plats->setDescription($menu['description']);
+                $plats->setPrix($menu['price']);
+                // $plats->setImage($menus['img']);
+                $plats->setTag('pizza');
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($plats);
+               
+               if($i==10) break;
+               $i++;
+            }
+
+        $entityManager->flush();
+
+
+        $client = new Client();
+        $crawler = $client->request('GET', 'https://www.just-eat.fr/restaurant-livraison-a-domicile/restaurant/les-burgers-de-papa-strasbourg');
+
+        $menus = [];
+        $crawler->filter('li')->filter('.product')->each(function ($node) use (&$menus){
+            
+             $menu['name'] = trim($node->filter('h4')->filter('.name')->text());
+             if(!empty($node->filter('div')->filter('.description')))
+             {
+                $menu['description'] = trim($node->filter('div')->filter('.description')->text());
+             }
+             if(!empty($node->filter('div')->filter('.price')))
+             {
+                $menu['price'] = trim($node->filter('div')->filter('.price')->text());
+             }
+            // dump($menu);
+            $menus[] = $menu;
+        });
+
+            $i=0;
+            foreach ($menus as $menu){
+                $plats = new Plats();
+                $plats->setNom($menu['name']);
+                $plats->setDescription($menu['description']);
+                $plats->setPrix($menu['price']);
+                // $plats->setImage($menus['img']);
+                $plats->setTag('burger');
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($plats);
+               
+               if($i==10) break;
+               $i++;
+            }
+
+        $entityManager->flush();
         
        
-
-        // https://www.just-eat.fr/restaurant-livraison-a-domicile/restaurant/oky-sushi-75020 sushi
-
-        // https://www.just-eat.fr/restaurant-livraison-a-domicile/restaurant/pizza-presto-75004 pizza
-
-        // 
-        // tag
 
         // $images = $crawler->filter('img')->each(function ($node) {
         //     echo '<img src="' . $node->attr('src') . '" alt="' . $node->attr('itemprop') . '">';
