@@ -21,19 +21,19 @@ class PlatsController extends AbstractController
     /**
      * @Route("/{searchBy}", name="plats_index", methods={"GET", "POST"})
      */
-    public function index(PlatsRepository $platsRepository, Plats $plats, ?string $searchBy = null) : Response
+    public function index(PlatsRepository $platsRepository, Plats $plat, ?string $searchBy = null) : Response
     {
         if (is_null($searchBy)){
-            $plats = $platsRepository->findAll();
+            $plat = $platsRepository->findAll();
         }
         elseif ($searchBy === 'desc'){
-            $plats = $platsRepository->findByDesc();
+            $plat = $platsRepository->findByDesc();
         }
         elseif ($searchBy === 'asc'){
-            $plats = $platsRepository->findByAsc();
+            $plat = $platsRepository->findByAsc();
         }
         return $this->render('plats/index.html.twig', [
-            'plat' => $plats
+            'plat' => $plat
         ]);
     }
 
