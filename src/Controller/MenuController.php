@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Commande;
-use App\Entity\Menu;
+use App\Entity\Plats;
 use App\Form\CommandeType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,7 +14,7 @@ class MenuController extends AbstractController
     /**
      * @Route("/menu/{id}", name="menu", methods={"GET","POST"})
      */
-    public function index(Request $request, Menu $menu)
+    public function index(Request $request, Plats $plats)
     {
         $commande = new Commande();
         $form = $this->createForm(CommandeType::class, $commande);
@@ -32,7 +32,8 @@ class MenuController extends AbstractController
         return $this->render('menu/index.html.twig', [
             'controller_name' => 'MenuController',
             'form' => $form->createView(),
-            'errors' => $errors
+            'errors' => $errors,
+            'plat' => $plats
         ]);
     }
 }
