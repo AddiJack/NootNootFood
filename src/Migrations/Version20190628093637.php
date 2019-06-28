@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190628081345 extends AbstractMigration
+final class Version20190628093637 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,8 +22,8 @@ final class Version20190628081345 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE commande (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(255) NOT NULL, prenom VARCHAR(255) NOT NULL, adresse LONGTEXT NOT NULL, email VARCHAR(255) NOT NULL, tel VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
-        $this->addSql('ALTER TABLE plats DROP restaurant');
+        $this->addSql('DROP TABLE menu');
+        $this->addSql('ALTER TABLE plats CHANGE image image VARCHAR(255) DEFAULT NULL, CHANGE tag tag VARCHAR(100) DEFAULT NULL, CHANGE prix prix VARCHAR(255) NOT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -31,7 +31,7 @@ final class Version20190628081345 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('DROP TABLE commande');
-        $this->addSql('ALTER TABLE plats ADD restaurant VARCHAR(100) NOT NULL COLLATE utf8mb4_unicode_ci');
+        $this->addSql('CREATE TABLE menu (id INT AUTO_INCREMENT NOT NULL, title VARCHAR(255) NOT NULL COLLATE utf8mb4_unicode_ci, description LONGTEXT NOT NULL COLLATE utf8mb4_unicode_ci, image LONGTEXT NOT NULL COLLATE utf8mb4_unicode_ci, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB COMMENT = \'\' ');
+        $this->addSql('ALTER TABLE plats CHANGE image image VARCHAR(255) NOT NULL COLLATE utf8mb4_unicode_ci, CHANGE tag tag VARCHAR(100) NOT NULL COLLATE utf8mb4_unicode_ci, CHANGE prix prix DOUBLE PRECISION NOT NULL');
     }
 }

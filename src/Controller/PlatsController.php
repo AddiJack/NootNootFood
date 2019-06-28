@@ -33,7 +33,7 @@ class PlatsController extends AbstractController
             $plats = $platsRepository->findByAsc();
         }
         return $this->render('plats/index.html.twig', [
-            'plats' => $plats
+            'plat' => $plats
         ]);
     }
 
@@ -109,9 +109,9 @@ class PlatsController extends AbstractController
     /**
      * @Route("/categorie/{tag}", name="tag_plat", methods={"GET"})
      */
-    public function platsCategorie (PlatsRepository $platsRepository, string $tag)
+    public function platsCategorie (PlatsRepository $platsRepository , Plats $plats, string $tag)
     {
         $allTags = $platsRepository->findByTag($tag);
-        return $this->render('plats/tag.html.twig', ['allTags' => $allTags, 'tag' => $tag]);
+        return $this->render('plats/tag.html.twig', ['allTags' => $allTags, 'tag' => $tag, 'plat'=>$plats]);
     }
 }

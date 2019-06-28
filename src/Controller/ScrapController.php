@@ -17,7 +17,7 @@ class ScrapController extends AbstractController
      */
     public function index()
     {
-        $client = new Client();
+        /*$client = new Client();
         $crawler = $client->request('GET', 'https://www.just-eat.fr/restaurant-livraison-a-domicile/restaurant/oky-sushi-75020');
 
         $menus = [];
@@ -174,7 +174,7 @@ class ScrapController extends AbstractController
 
         //  $tag = $crawler->filter('div')->filter('.cuisines')->filter('a')->each(function ($node){
         //     return $posts[] = $node->text();
-        // }); 
+        // }); */
 
        
         return $this->render('scrap/index.html.twig', [

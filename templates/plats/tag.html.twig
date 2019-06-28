@@ -12,13 +12,13 @@
             <div class="col-md-9 choix">
                 <div class="container">
                     <div class="row">
-                        {% for plats in allTags %}
+                        {% for plat in allTags %}
                             <div class="col-md-4 mt-5">
                                 <div class="card-container">
                                     <div class="card">
                                         <div class="front">
                                             <div class="cover">
-                                                <img src="{{ plat.image }}"/>
+                                                {#<img src="{{ plat.image }}"/>#}
                                             </div>
                                             <div class="content">
                                                 <div class="main">
@@ -33,7 +33,7 @@
                                                         <br><br>
                                                         <hr>
                                                         <!-- Button -->
-                                                        <a href="{{ path('plat', {'id':plat.id}) }}"
+                                                        <a href="{{ path('menu', {'id':plat.id}) }}"
                                                            class="btn btn-orange">
                                                             J'ai les crocs,<br>je commande ça !
                                                         </a>
