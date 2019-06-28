@@ -1,27 +1,40 @@
-{% extends 'base.html.twig' %}
+{% extends 'base2.html.twig' %}
 
 {% block title %}Message envoyé !{% endblock %}
 
 {% block body %}
-<body class="pop-up">
+    <div class="container pt-5 pb-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-5 mb-md-0">
+                <div id="pop-up">
+                    <!-- <img src="images/cross.png"> -->
+                    <div class="container message">
+                        <h1>VOTRE MESSAGE A BIEN ETE ENVOYE</h1>
+                        <p>Message de la part de <strong>4 meufs</strong> et <strong>2 gars</strong>.</p>
+                        <p><strong>MERCI !</strong></p>
+                        <div class="cross" ><i class="fa fa-times" style="color: #fff;"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
 
-<div id="pop-up">
-    <!-- <img src="images/cross.png"> -->
-    <div class="container message">
-        <h1>VOTRE MESSAGE A BIEN ETE ENVOYE</h1>
-        <p>Message de la part de <strong>4 meufs</strong> et <strong>2 gars</strong>.</p>
-        <p><strong>MERCI !</strong></p>
-        <div class="cross" ><i class="fa fa-times" style="color: #fff;"></i></div>
-    </div>
-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
 
-<div class="container">
-    <div class="row justify-content-end">
-        <div class="submit-wrapper justify-content-end">
-            <a href="{{ path('accueil') }}">ACCUEIL</a>
+            </div>
         </div>
     </div>
-</div>
+<body class="pop-up">
+
+
+
+
 
 </body>
 {% endblock %}
