@@ -50,7 +50,7 @@ class ScrapController extends AbstractController
             $plats->setDescription($menu['description']);
             $plats->setPrix($menu['price']);
             //$plats->setImage('img');
-            //$plats->setTag('sushi');
+            $plats->setTag('sushi');
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($plats);
            // dump($menu);
