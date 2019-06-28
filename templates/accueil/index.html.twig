@@ -25,6 +25,18 @@
                         &nbsp;&nbsp;Tous les burgers
                     </a>
                 </button>
+                <button class="mt-3 btn tempting-azure-gradient btn-select">
+                    <a href="{{ path('plats_index', {searchBy:'asc'}) }}">
+                        <i class="fas fa-angle-up"></i>
+                        &nbsp;&nbsp;Tri prix ascendant
+                    </a>
+                </button>
+                <button class="mt-3 btn tempting-azure-gradient btn-select">
+                    <a href="{{ path('plats_index', {searchBy:'desc'}) }}">
+                        <i class="fas fa-angle-down"></i>
+                        &nbsp;&nbsp;Tri prix descendant
+                    </a>
+                </button>
             </div>
             <div class="col-md-9 choix">
                 <div class="container">
