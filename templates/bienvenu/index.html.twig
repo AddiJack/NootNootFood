@@ -1,0 +1,24 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Bienvenue{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center pt-4 pb-4">
+                <img class="pt-1 w-50" src="{{ asset('image/bienvenue.png') }}" alt="bienvenue">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center">
+                <img class="pt-1 w-25" src="{{ asset('image/pingu_yummy.png') }}" alt="pingu_yummy">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="submit-wrapper2">
+                <a href="{{ path('accueil') }}">ACCUEIL</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
