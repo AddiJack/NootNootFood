@@ -37,6 +37,12 @@ h4 {
   font-weight: normal !important;
 }
 
+h2 {
+  font-family: calibri, sans-serif !important;
+  font-weight: normal !important;
+  color: #272c2f !important;
+}
+
 .btn-select {
   color: #fff8f0;
 }
